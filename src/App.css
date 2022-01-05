@@ -63,14 +63,13 @@ li {
   padding-bottom: 4px;
 }
 
-@media screen and (max-width: 700px){
-  
-.input-area {
-  width: 100%;
-  border-radius: 8px;
-  padding: 8px;
-  margin: 20px auto;
-} 
+@media screen and (max-width: 700px) {
+  .input-area {
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 20px auto;
+  }
   .incomplete-area {
     background-color: #c6ffe2;
     width: 90%;
