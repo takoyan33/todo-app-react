@@ -23,7 +23,7 @@ export const App = () => {
   ]);
   const [completeTodos, setCompleteTodos] = useState([
     "朝ごはんを作る",
-    "早く朝起きる",
+    "早起きする",
   ]);
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
