@@ -17,8 +17,14 @@ export const App = () => {
     <meta name="viewport" content="initial-scale=1, width=device-width" />
   </head>;
   const [todoText, setTodoText] = useState("");
-  const [incompleteTodos, setIncompleteTodos] = useState([""]);
-  const [completeTodos, setCompleteTodos] = useState([""]);
+  const [incompleteTodos, setIncompleteTodos] = useState([
+    "掃除をする",
+    "課題をする",
+  ]);
+  const [completeTodos, setCompleteTodos] = useState([
+    "朝ごはんを作る",
+    "早く朝起きる",
+  ]);
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
@@ -72,10 +78,6 @@ export const App = () => {
             <Route exact path="/about">
               <About />
             </Route>
-            {/* <Route exact path="/">
-            <App />
-          </Route> */}
-
             <div className="">
               <InputTodo
                 todoText={todoText}
@@ -91,7 +93,6 @@ export const App = () => {
                 onClickComplete={onClickComplete}
                 onClickDelete={onClickDelete}
               />
-
               <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
             </div>
           </Switch>
