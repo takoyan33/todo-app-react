@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 export const IncompleteTodos = (props) => {
-  const { todos, onClickComplete, onClickDelete } = props;
+  const { todos, onClickComplete, onClickDelete, onClickStop } = props;
 
   return (
     <Stack direction="row" spacing={2} className="incomplete-area">
@@ -21,6 +21,9 @@ export const IncompleteTodos = (props) => {
               </Button>
               <Button variant="contained" onClick={() => onClickDelete(index)}>
                 削除
+              </Button>
+              <Button variant="contained" onClick={() => onClickStop(index)}>
+                中断する
               </Button>
             </div>
           );
