@@ -1,5 +1,4 @@
 import React from "react";
-import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 export const CompleteTodos = (props) => {
@@ -7,13 +6,13 @@ export const CompleteTodos = (props) => {
 
   return (
     <>
-      <Stack direction="row" spacing={2} className="complete-area">
-        <p className="text-1xl font-bold">完了のTODO</p>
+      <div direction="row" spacing={2} className="complete-area">
+        <p className="text-1xl font-bold mb-4">完了のTODO</p>
         <ul>
           {todos.map((todo, index) => {
             return (
-              <div key={todo} className="list-row">
-                <p>{todo}</p>
+              <li key={todo} className="list-row mb-3">
+                <p className="mr-4">{todo}</p>
                 <Button variant="contained" onClick={() => onClickBack(index)}>
                   戻す
                 </Button>
@@ -23,11 +22,11 @@ export const CompleteTodos = (props) => {
                 >
                   削除
                 </Button>
-              </div>
+              </li>
             );
           })}
         </ul>
-      </Stack>
+      </div>
     </>
   );
 };
