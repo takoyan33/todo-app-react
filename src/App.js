@@ -15,7 +15,7 @@ export const App = () => {
   return (
     <>
       <AuthProvider>
-        <div style={{ margin: "2em" }}>
+        <div>
           <BrowserRouter>
             <PrivateRoute exact path="/" component={Home} />
             <PublicRoute path="/signup" component={SignUp} />

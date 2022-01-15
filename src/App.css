@@ -76,10 +76,6 @@ body {
   font-family: sans-serif;
 }
 
-body div {
-  margin:0;
-}
-
 input {
   border-radius: 16px;
   border: none;
@@ -107,7 +103,7 @@ li {
   width: 600px;
   border-radius: 8px;
   padding: 8px;
-  margin: 8px auto !important;
+  margin: 8px auto ;
 }
 
 .incomplete-area {
@@ -115,7 +111,7 @@ li {
   width: 600px;
   min-height: 200px;
   padding: 8px;
-  margin: 8px auto !important;
+  margin: 8px auto ;
   border-radius: 8px;
 }
 
@@ -124,7 +120,7 @@ li {
   width: 600px;
   min-height: 200px;
   padding: 8px;
-  margin: 8px auto !important;
+  margin: 8px auto ;
   border-radius: 8px;
 }
 
@@ -133,7 +129,7 @@ li {
   width: 600px;
   min-height: 200px;
   padding: 8px;
-  margin: 8px auto !important;
+  margin: 8px auto ;
   border-radius: 8px;
 }
 
@@ -151,26 +147,23 @@ li {
 }
 
 .margin0 {
-  margin: 0 !important;
+  margin: 0 ;
 }
 
 @media screen and (max-width: 700px) {
 
-  body div {
-    margin: 0 !important;
-  }
   .input-area {
     width: 100%;
     border-radius: 8px;
     padding: 8px;
-    margin: 20px auto !important;
+    margin: 20px auto ;
   }
   .incomplete-area {
     background-color: #c6ffe2;
     width: 90%;
     min-height: 200px;
     padding: 8px;
-    margin: 8px auto !important;
+    margin: 8px auto ;
     border-radius: 8px;
   }
   .complete-area {
@@ -178,7 +171,7 @@ li {
     width: 90%;
     min-height: 200px;
     padding: 8px;
-    margin: 8px auto !important;
+    margin: 8px auto ;
     border-radius: 8px;
   }
   .stop-area {
