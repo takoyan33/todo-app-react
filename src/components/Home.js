@@ -1,30 +1,29 @@
+import { auth } from "../firebase";
+import { useHistory, Redirect } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 import React, { useState } from "react";
-import "./App.css";
-import "./index.css";
+import "../App.css";
+import "../index.css";
 import Stack from "@mui/material/Stack";
-import InputTodo from "./components/InputTodo";
-import { IncompleteTodos } from "./components/IncompleteTodos";
-import { CompleteTodos } from "./components/CompleteTodos";
-import { StopTodos } from "./components/StopTodos";
+import InputTodo from "./InputTodo";
+import { IncompleteTodos } from "./IncompleteTodos";
+import { CompleteTodos } from "./CompleteTodos";
+import { StopTodos } from "./StopTodos";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import { About } from "./About.js";
-import Home from "./components/Home";
-import SignUp from "./components/SignUp";
-import Login from "./components/Login";
-import { AuthProvider } from "./context/AuthContext";
-import PrivateRoute from "./components/PrivateRoute";
-import PublicRoute from "./components/PublicRoute";
+import { About } from "../About.js";
 
-
-export const App = () => {
-  <head>
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-  </head>;
+const Home = () => {
+  const history = useHistory();
+  const { user } = useAuthContext();
+  const handleLogout = () => {
+    auth.signOut();
+    history.push("/login");
+  };
   const [todoText, setTodoText] = useState("");
   const [incompleteTodos, setIncompleteTodos] = useState([
     "掃除をする",
@@ -98,18 +97,11 @@ export const App = () => {
     setIncompleteTodos(newIncompleteTodos);
   };
 
-  return (
-    <>
-      <AuthProvider>
-        <div style={{ margin: "2em" }}>
-          <BrowserRouter>
-            <PrivateRoute exact path="/" component={Home} />
-            <PublicRoute path="/signup" component={SignUp} />
-            <PublicRoute path="/login" component={Login} />
-          </BrowserRouter>
-        </div>
-      </AuthProvider>
-      {/* <BrowserRouter>
+  if (!user) {
+    return <Redirect to="/login" />;
+  } else {
+    return (
+      <BrowserRouter className="marign0">
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
             <Toolbar>
@@ -118,6 +110,9 @@ export const App = () => {
               </Typography>
               <Button color="inherit">
                 <Link to="/about">About</Link>
+              </Button>
+              <Button color="inherit" onClick={handleLogout}>
+                ログアウト
               </Button>
             </Toolbar>
           </AppBar>
@@ -156,9 +151,9 @@ export const App = () => {
             </div>
           </Switch>
         </Box>
-      </BrowserRouter> */}
-    </>
-  );
+      </BrowserRouter>
+    );
+  }
 };
 
-export default App;
+export default Home;
