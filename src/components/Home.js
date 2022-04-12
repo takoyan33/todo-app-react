@@ -123,9 +123,9 @@ const Home = () => {
             </Route>
             <div className="">
               <Stack direction="row" className="input-area">
-                <p>
+                {/* <p>
                   未完了・ 完了・中断にそれぞれ最大5個までタスクを入れられます。
-                </p>
+                </p> */}
               </Stack>
               <InputTodo
                 todoText={todoText}
